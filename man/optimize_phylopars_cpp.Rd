@@ -8,6 +8,7 @@ optimize_phylopars_cpp(
   tree,
   trait_data,
   method = c("EM", "BFGS"),
+  likelihood = c("ML", "REML"),
   control = list(),
   R_init = NULL,
   S_init = NULL,
@@ -23,6 +24,8 @@ optimize_phylopars_cpp(
 
 \item{method}{Character vector of methods to run}
 
+\item{likelihood}{Which likelihood to use: "ML" (default) or "REML"}
+
 \item{control}{Named list with per-method settings}
 
 \item{R_init}{Initial R matrix}
@@ -36,8 +39,12 @@ optimize_phylopars_cpp(
 \item{backend}{"R", "armadillo", or "eigen"}
 }
 \value{
-List with R, S, mu, logL, history, converged
+List with R, S, mu, logL, likelihood, history, converged
 }
 \description{
 Unified Optimizer with C++ Backend
+}
+\details{
+When likelihood="REML", the EM method is not available (skipped automatically).
+REML uses numerical gradients (no analytic gradients implemented yet).
 }

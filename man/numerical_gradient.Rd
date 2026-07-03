@@ -4,10 +4,19 @@
 \alias{numerical_gradient}
 \title{Numerical Gradient for Comparison}
 \usage{
-numerical_gradient(tree, trait_data, R, S, eps = 1e-06)
+numerical_gradient(
+  tree,
+  trait_data,
+  R,
+  S,
+  model = "BM",
+  evo_model_par = NULL,
+  eps = 1e-06
+)
 }
 \arguments{
-\item{tree}{A phylo object (should be postorder)}
+\item{tree}{A phylo object (should be postorder). For non-BM models,
+should have root_dist computed.}
 
 \item{trait_data}{Data frame with species in first column, traits in rest}
 
@@ -15,12 +24,16 @@ numerical_gradient(tree, trait_data, R, S, eps = 1e-06)
 
 \item{S}{Residual covariance matrix}
 
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", "OU"}
+
+\item{evo_model_par}{Evolutionary parameter value (ignored for BM)}
+
 \item{eps}{Step size for finite differences (default 1e-6)}
 }
 \value{
-List with grad_R and grad_S (numerical gradients)
+List with grad_R, grad_S, and optionally grad_evo (numerical gradients)
 }
 \description{
 Computes the gradient numerically using finite differences.
-Useful for validating the analytic gradient.
+Useful for validating the analytic gradient. Supports non-BM models.
 }

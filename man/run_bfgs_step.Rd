@@ -4,7 +4,20 @@
 \alias{run_bfgs_step}
 \title{Run BFGS Step with Analytic Gradients}
 \usage{
-run_bfgs_step(tree, trait_data, R, S, ctrl, verbose, method = "BFGS")
+run_bfgs_step(
+  tree,
+  trait_data,
+  R,
+  S,
+  ctrl,
+  verbose,
+  optim_method = "BFGS",
+  likelihood = "ML",
+  model = "BM",
+  evo_model_par = NULL,
+  optimize_evo = FALSE,
+  constraints = NULL
+)
 }
 \description{
 Run BFGS Step with Analytic Gradients

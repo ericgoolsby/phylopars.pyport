@@ -4,7 +4,19 @@
 \alias{run_nm_step}
 \title{Run Nelder-Mead Step}
 \usage{
-run_nm_step(tree, trait_data, R, S, ctrl, verbose)
+run_nm_step(
+  tree,
+  trait_data,
+  R,
+  S,
+  ctrl,
+  verbose,
+  likelihood = "ML",
+  model = "BM",
+  evo_model_par = NULL,
+  optimize_evo = FALSE,
+  constraints = NULL
+)
 }
 \description{
 Run Nelder-Mead Step

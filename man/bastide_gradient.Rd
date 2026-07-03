@@ -4,16 +4,21 @@
 \alias{bastide_gradient}
 \title{Compute Full Gradient (Bastide Traversal + Gradient Computation)}
 \usage{
-bastide_gradient(tree, trait_data, R, S)
+bastide_gradient(tree, trait_data, R, S, model = "BM", evo_model_par = NULL)
 }
 \arguments{
-\item{tree}{A phylo object (should be postorder)}
+\item{tree}{A phylo object (should be postorder). For non-BM models, this
+should be the ORIGINAL tree (pre-transform) with root_dist computed.}
 
 \item{trait_data}{Data frame with species in first column, traits in rest}
 
 \item{R}{Phylogenetic rate matrix (Sigma)}
 
 \item{S}{Residual covariance matrix (B)}
+
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", "OU"}
+
+\item{evo_model_par}{Evolutionary parameter value (ignored for BM)}
 }
 \value{
 List with components:
@@ -21,8 +26,9 @@ List with components:
   \item{mu}{Mean estimate}
   \item{grad_R}{Gradient with respect to R}
   \item{grad_S}{Gradient with respect to S}
+  \item{grad_evo}{Gradient with respect to evolutionary parameter (NULL for BM)}
 }
 \description{
 Convenience function that runs the Bastide traversal and computes the
-gradient in one call.
+gradient in one call. Supports both BM and non-BM models.
 }

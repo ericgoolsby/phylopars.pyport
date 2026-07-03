@@ -2,11 +2,23 @@
 % Please edit documentation in R/utils.R
 \name{matrices_to_theta}
 \alias{matrices_to_theta}
-\title{Convert R and S matrices to theta vector (Cholesky parameterization)}
+\title{Convert R and S matrices to theta vector (convenience wrapper)}
 \usage{
-matrices_to_theta(R, S)
+matrices_to_theta(R, S, constraints = NULL)
+}
+\arguments{
+\item{R}{Phylogenetic rate matrix}
+
+\item{S}{Residual covariance matrix}
+
+\item{constraints}{Optional ConstraintSpec object (from make_constraints)}
+}
+\value{
+Numeric vector of parameters
 }
 \description{
-Convert R and S matrices to theta vector (Cholesky parameterization)
+Simple interface for converting two covariance matrices (R and S) to a theta
+parameter vector. When constraints are provided, uses the constrained
+parameterization; otherwise uses the standard log-Cholesky parameterization.
 }
 \keyword{internal}

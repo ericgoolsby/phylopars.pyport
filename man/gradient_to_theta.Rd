@@ -4,9 +4,45 @@
 \alias{gradient_to_theta}
 \title{Convert gradient matrices to theta-space gradient}
 \usage{
-gradient_to_theta(grad_R, grad_S, R, S)
+gradient_to_theta(
+  grad_R,
+  grad_S,
+  R,
+  S,
+  grad_evo = NULL,
+  evo_model_par = NULL,
+  model = "BM",
+  constraints = NULL
+)
+}
+\arguments{
+\item{grad_R}{Gradient w.r.t. R matrix}
+
+\item{grad_S}{Gradient w.r.t. S matrix}
+
+\item{R}{Current R matrix}
+
+\item{S}{Current S matrix}
+
+\item{grad_evo}{Gradient w.r.t. evolutionary parameter (scalar, or NULL)}
+
+\item{evo_model_par}{Current evolutionary parameter value (needed for chain rule)}
+
+\item{model}{Evolutionary model name (needed for chain rule)}
+
+\item{constraints}{Optional ConstraintSpec object (from make_constraints)}
+}
+\value{
+Numeric vector of gradient in theta space
 }
 \description{
 Uses chain rule: d/d(theta) = d/d(L) * d(L)/d(theta)
+where L is the lower-triangular Cholesky factor with log-diagonal.
+}
+\details{
+Optionally includes the evolutionary parameter gradient, chaining through
+the parameter-to-theta transform (logit for lambda, log for others).
+
+When constraints are provided, uses the constrained gradient mapping instead.
 }
 \keyword{internal}

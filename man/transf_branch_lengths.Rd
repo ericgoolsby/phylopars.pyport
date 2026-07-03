@@ -7,9 +7,9 @@
 transf_branch_lengths(tree, model, evo_model_par)
 }
 \arguments{
-\item{tree}{A phylo object with root_dist computed}
+\item{tree}{A phylo object with root_dist computed (via dist_from_root)}
 
-\item{model}{Evolutionary model ("BM" or "lambda")}
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", "OU"}
 
 \item{evo_model_par}{Parameter for the model}
 }
@@ -17,5 +17,5 @@ transf_branch_lengths(tree, model, evo_model_par)
 Tree with transformed branch lengths
 }
 \description{
-Transform branch lengths for evolutionary models
+Delegates to the model-specific functions in tree_transforms.R.
 }

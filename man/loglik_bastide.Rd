@@ -4,7 +4,7 @@
 \alias{loglik_bastide}
 \title{Compute ML Log-Likelihood Using Bastide Traversal}
 \usage{
-loglik_bastide(R, S, tree, trait_data)
+loglik_bastide(R, S, tree, trait_data, model = "BM", evo_model_par = NULL)
 }
 \arguments{
 \item{R}{Phylogenetic rate matrix (Sigma)}
@@ -14,6 +14,10 @@ loglik_bastide(R, S, tree, trait_data)
 \item{tree}{A phylo object (should be postorder)}
 
 \item{trait_data}{Data frame with species and traits}
+
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", "OU"}
+
+\item{evo_model_par}{Model parameter value (ignored for BM)}
 }
 \value{
 Log-likelihood value
@@ -21,4 +25,9 @@ Log-likelihood value
 \description{
 Wrapper function that computes only the likelihood (no backward pass).
 Note: This computes ML likelihood, not REML.
+}
+\details{
+Optionally applies a tree transformation for non-BM models before
+running the traversal. The tree should already have root_dist computed
+(via dist_from_root) if using a non-BM model.
 }

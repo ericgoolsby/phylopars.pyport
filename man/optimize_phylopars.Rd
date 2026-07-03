@@ -8,11 +8,16 @@ optimize_phylopars(
   tree,
   trait_data,
   method = c("EM", "BFGS"),
+  likelihood = c("ML", "REML"),
+  model = "BM",
+  evo_model_par_start = NULL,
+  evo_model_par_fixed = NULL,
   control = list(),
   R_init = NULL,
   S_init = NULL,
   mu_init = NULL,
-  verbose = FALSE
+  verbose = FALSE,
+  constraints = NULL
 )
 }
 \arguments{
@@ -23,6 +28,14 @@ optimize_phylopars(
 \item{method}{Character vector of methods to run in order.
 Options: "EM", "BFGS", "Nelder-Mead", "L-BFGS-B"
 Default: c("EM", "BFGS")}
+
+\item{likelihood}{Which likelihood to use: "ML" (default) or "REML"}
+
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", "OU"}
+
+\item{evo_model_par_start}{Starting value for evolutionary parameter (NULL = default)}
+
+\item{evo_model_par_fixed}{Fixed value for evolutionary parameter (NULL = optimize)}
 
 \item{control}{Named list with per-method settings. Each element should be
 a list with max_iter, tol, etc. See details.}
@@ -41,6 +54,9 @@ List with:
   \item{S}{Final residual covariance matrix}
   \item{mu}{Final mean vector}
   \item{logL}{Final log-likelihood}
+  \item{likelihood}{Which likelihood was used}
+  \item{model}{Evolutionary model used}
+  \item{evo_model_par}{Estimated evolutionary model parameter}
   \item{history}{List with results from each method step}
   \item{converged}{Overall convergence status}
 }
@@ -48,6 +64,15 @@ List with:
 Main optimization function that supports running multiple methods in sequence.
 }
 \details{
+## Likelihood types
+
+- **ML**: Maximum likelihood (Bastide 2021 algorithm with analytic gradients)
+- **REML**: Restricted maximum likelihood (integrates out mean parameter)
+
+Note: REML does not have analytic gradients implemented, so gradient-based
+methods (BFGS, L-BFGS-B) will use numerical gradients when likelihood="REML".
+EM is not available for REML.
+
 ## Control parameters
 
 The control list can have entries for each method type:
@@ -63,16 +88,16 @@ control = list(
 
 ## Method characteristics
 
-- **EM**: Most stable, good for finding general region. Slow near optimum.
-- **BFGS**: Fast with analytic gradients. May fail with singular Hessians.
+- **EM**: Most stable, good for finding general region. Slow near optimum. (ML only)
+- **BFGS**: Fast with analytic gradients (ML) or numerical (REML).
 - **Nelder-Mead**: No gradients needed. Robust but slow.
 - **L-BFGS-B**: Limited memory BFGS. Good for high dimensions.
 
 ## Example sequences
 
-- `c("EM")`: Pure EM (stable but slow)
+- `c("EM")`: Pure EM (stable but slow, ML only)
 - `c("BFGS")`: Pure gradient descent (fast but may fail)
-- `c("EM", "BFGS")`: EM to get close, BFGS to polish (recommended)
+- `c("EM", "BFGS")`: EM to get close, BFGS to polish (recommended for ML)
+- `c("BFGS", "Nelder-Mead")`: Recommended for REML
 - `c("EM", "BFGS", "Nelder-Mead")`: EM, then BFGS, then polish with NM
-- `c("EM", "BFGS", "EM", "BFGS")`: Cycle between methods
 }

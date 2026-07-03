@@ -2,11 +2,22 @@
 % Please edit documentation in R/utils.R
 \name{theta_to_matrices}
 \alias{theta_to_matrices}
-\title{Convert theta vector back to R and S matrices}
+\title{Convert theta vector back to R and S matrices (convenience wrapper)}
 \usage{
-theta_to_matrices(theta, p)
+theta_to_matrices(theta, p, constraints = NULL)
+}
+\arguments{
+\item{theta}{Numeric vector of parameters}
+
+\item{p}{Dimension of the covariance matrices}
+
+\item{constraints}{Optional ConstraintSpec object (from make_constraints)}
+}
+\value{
+List with components R and S
 }
 \description{
-Convert theta vector back to R and S matrices
+When constraints are provided, uses the constrained parameterization;
+otherwise uses the standard log-Cholesky parameterization.
 }
 \keyword{internal}

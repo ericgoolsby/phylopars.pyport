@@ -3,7 +3,7 @@
 \docType{data}
 \name{example_traits}
 \alias{example_traits}
-\title{Example trait data}
+\title{Example 25-species trait data}
 \format{
 A data frame with 75 rows (25 species x 3 replicates) and 5 columns:
 \describe{

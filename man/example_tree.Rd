@@ -3,7 +3,7 @@
 \docType{data}
 \name{example_tree}
 \alias{example_tree}
-\title{Example phylogenetic tree}
+\title{Example 25-species phylogenetic tree}
 \format{
 A phylo object with 25 tips
 }

@@ -43,7 +43,7 @@ remaining columns. Missing values (NA) are allowed.}
 
 \item{control}{List of control parameters for optim()}
 
-\item{model}{Evolutionary model: "BM" (Brownian Motion) or "lambda" (Pagel's)}
+\item{model}{Evolutionary model: "BM", "lambda", "kappa", "delta", "EB", or "OU"}
 
 \item{evo_model_par_start}{Starting value for evolutionary model parameter}
 
