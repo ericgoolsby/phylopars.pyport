@@ -49,6 +49,17 @@
 #' plot(loo_trees$t1)
 "loo_trees"
 
+#' 50 LOO-CV Y Datasets
+#'
+#' A named list of data frames, each corresponding to a subset of Y where all rows for a single species were removed.
+#' The order of dropped species corresponds to the species vector `tree$tip.label`.
+#'
+#' @format A list of data frames
+#' @examples
+#' data(loo_Ys)
+#' head(loo_Ys$t1)
+"loo_Ys"
+
 #' Example trait data
 #'
 #' Trait data for 50 species with 4 continuous traits. Includes missing values
