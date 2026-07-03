@@ -1,0 +1,51 @@
+# R development
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Compiled code
+src/*.o
+src/*.so
+src/*.dll
+src/*.a
+src/*.rds
+src-i386/
+src-x64/
+
+# Package build artifacts
+*.tar.gz
+*.zip
+*.Rcheck/
+inst/doc
+
+# Quarto / docs site output
+docs/_site/
+docs/_freeze/
+docs/.quarto/
+*_files/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+*.key
+credentials.json
+secrets.json
+
+# Temporary
+*~
+\#*\#
+.\#*
+
+# Agent working dirs
+.claude/
+.serena/

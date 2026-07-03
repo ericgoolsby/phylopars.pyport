@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^docs$
+^scripts$
+^data-raw$
+^CLAUDE\.md$
+^NEWS\.md$
+^LICENSE\.md$
+^README\.Rmd$
+^_quarto\.yml$
+^cran-comments\.md$
+^\.claude$
+^\.serena$

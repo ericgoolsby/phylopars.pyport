@@ -1,0 +1,30 @@
+Package: phylopars.pyport
+Type: Package
+Title: Clean Reference Implementation of Phylogenetic Mixed Models
+Version: 0.1.0
+Authors@R: person("Eric W.", "Goolsby",
+                  email = "eric.goolsby.evolution@gmail.com",
+                  role = c("aut", "cre"))
+Description: A clean, readable implementation of phylogenetic mixed model
+    parameter estimation using REML. This is a direct port from a Python
+    prototype and serves as a reference implementation for understanding
+    the core algorithms. Supports Brownian Motion and Pagel's lambda models,
+    handles missing data and within-species variation.
+License: GPL (>= 2)
+Depends:
+    R (>= 3.5.0),
+    ape
+Imports:
+    stats,
+    Rcpp
+LinkingTo:
+    Rcpp,
+    RcppArmadillo,
+    RcppEigen
+Suggests:
+    testthat (>= 3.0.0),
+    devtools
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
