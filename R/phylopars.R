@@ -66,8 +66,7 @@ phylopars <- function(Y, tree, Sigma_start = NULL, B_start = NULL,
   
   # Ensure postorder
   if(attributes(tree)$order != "postorder") {
-      reorder(tree,"postorder")
-    }
+    reorder(tree,"postorder")
   }
   backend <- match.arg(backend)
 
