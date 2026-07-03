@@ -38,6 +38,17 @@
 #' plot(tree)
 "tree"
 
+#' 50 LOO-CV Trees
+#'
+#' A named list of phylogenetic trees, each corresponding to a tree where a single species was dropped from `tree`.
+#' The order of dropped species corresponds to the species vector `tree$tip.label`.
+#'
+#' @format A list of phylo objects
+#' @examples
+#' data(loo_trees)
+#' plot(loo_trees$t1)
+"loo_trees"
+
 #' Example trait data
 #'
 #' Trait data for 50 species with 4 continuous traits. Includes missing values

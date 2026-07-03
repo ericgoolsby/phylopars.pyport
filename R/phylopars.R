@@ -64,10 +64,6 @@ phylopars <- function(Y, tree, Sigma_start = NULL, B_start = NULL,
     stop("tree must be a phylo object")
   }
   
-  # Ensure postorder
-  if(attributes(tree)$order != "postorder") {
-    reorder(tree,"postorder")
-  }
   backend <- match.arg(backend)
 
   if (!is.data.frame(Y)) {

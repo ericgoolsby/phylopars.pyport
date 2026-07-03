@@ -1,7 +1,7 @@
 Package: phylopars.pyport
 Type: Package
 Title: Clean Reference Implementation of Phylogenetic Mixed Models
-Version: 0.1.3
+Version: 0.1.4
 Authors@R: person("Eric W.", "Goolsby",
                   email = "eric.goolsby.evolution@gmail.com",
                   role = c("aut", "cre"))
