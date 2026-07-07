@@ -5,7 +5,7 @@ Version: 0.1.5
 Authors@R: person("Eric W.", "Goolsby",
                   email = "eric.goolsby.evolution@gmail.com",
                   role = c("aut", "cre"))
-Description: Description
+Description: A description
 License: GPL (>= 2)
 Depends:
     R (>= 3.5.0),
