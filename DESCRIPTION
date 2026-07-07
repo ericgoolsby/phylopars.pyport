@@ -5,11 +5,7 @@ Version: 0.1.5
 Authors@R: person("Eric W.", "Goolsby",
                   email = "eric.goolsby.evolution@gmail.com",
                   role = c("aut", "cre"))
-Description: A clean, readable implementation of phylogenetic mixed model
-    parameter estimation using REML. This is a direct port from a Python
-    prototype and serves as a reference implementation for understanding
-    the core algorithms. Supports Brownian Motion and Pagel's lambda models,
-    handles missing data and within-species variation.
+Description: Description
 License: GPL (>= 2)
 Depends:
     R (>= 3.5.0),
